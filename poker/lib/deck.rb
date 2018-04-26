@@ -9,21 +9,21 @@ class Deck
   end
 
   def self.place_cards
-    fresh = shuffle_cards
-    Deck.new(fresh)
+    fresh = Deck.new
+    fresh.shuffle_cards
+    fresh
   end
 
   def shuffle_cards
-    result = []
-    suits = [:spade, :heart, :clover, :diamond]
+    suits = [:spade, :heart, :club, :diamond]
 
     suits.each do |suit|
       (1..13).each do |value|
-        result << Card.new(value, suit)
+        @cards << Card.new(value, suit)
       end
     end
 
-    result.shuffle!
+    @cards.shuffle!
   end
 
 end
